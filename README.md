@@ -1,9 +1,8 @@
-# whisper_trt
+# WhisperTRT
 
-This repository optimizes Whisper for execution with TensorRT.
+WhisperTRT is a project that optimizes [OpenAI Whisper](https://github.com/openai/whisper) with [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt#:~:text=NVIDIA%20TensorRT%2DLLM%20is%20an,on%20the%20NVIDIA%20AI%20platform.), enabling lower memory consumption, and higher throughput compared to running Whisper with PyTorch.
 
-This results in lower memory consumption, and higher throughput compared to running Whisper with PyTorch.
-
+WhisperTRT roughly mimics the API of the original Whisper model, making it easy to use.  Read below for performance and usage details.
 
 ## Benchmark
 
@@ -78,3 +77,8 @@ This script demonstrates live transcription using a microphone and voice activit
 ```bash
 python examples/live_transcription.py tiny.en --backend whisper_trt
 ```
+
+## See also
+
+- [torch2trt](https://github.com/NVIDIA-AI-IOT/torch2trt) - Used to convert PyTorch model to TensorRT and perform inference.
+- [NanoLLM](https://github.com/dusty-nv/NanoLLM) - Large Language Models targeting NVIDIA Jetson.  Perfect for combining with ASR!
