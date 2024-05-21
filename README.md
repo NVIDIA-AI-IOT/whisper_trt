@@ -24,6 +24,12 @@ print(result['text'])
 > ``wget https://www.voiptroubleshooter.com/open_speech/american/OSR_us_000_0010_8k.wav -O speech.wav``.
 
 
+> You may want to save or load the model to a custom path.  To do so, simply initialize the model like this
+> 
+> ```python3
+> model = load_trt_model("tiny.en", path="./my_folder/tiny_en_trt.pth")
+> ```
+
 ### Transcribe
 
 This script simply runs the model once.  
