@@ -40,10 +40,13 @@ from whisper_trt import load_trt_model
 
 model = load_trt_model("tiny.en")
 
-result = model.transcribe("speech.wav")
+result = model.transcribe("speech.wav") # or pass numpy array
 
 print(result['text'])
 ```
+
+> You can download an example speech file from [here](https://www.voiptroubleshooter.com/open_speech/american/OSR_us_000_0010_8k.wav) or 
+> ``wget https://www.voiptroubleshooter.com/open_speech/american/OSR_us_000_0010_8k.wav -O speech.wav``.
 
 
 ### Transcribe
@@ -54,7 +57,7 @@ This script simply runs the model once.
 > After the first run, the model will be cached in the directory ~/.cache/whisper_trt/.
 
 ```bash
-python scripts/transcribe.py tiny.en assets/speech.wav --backend whisper_trt
+python examples/transcribe.py tiny.en assets/speech.wav --backend whisper_trt
 ```
 
 ### Profile Backend
@@ -63,7 +66,7 @@ This scripts measures the latency and process memory when transcribing audio. It
 more accurate timing.
 
 ```bash
-python scripts/profile_backend.py tiny.en assets/speech.wav --backend whisper_trt
+python examples/profile_backend.py tiny.en assets/speech.wav --backend whisper_trt
 ```
 
 Backend can be one of "whisper_trt", "whisper", or "faster_whisper".
@@ -73,5 +76,5 @@ Backend can be one of "whisper_trt", "whisper", or "faster_whisper".
 This script demonstrates live transcription using a microphone and voice activity detection.
 
 ```bash
-python scripts/live_transcription.py tiny.en --backend whisper_trt
+python examples/live_transcription.py tiny.en --backend whisper_trt
 ```
