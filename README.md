@@ -2,7 +2,9 @@
 
 This project optimizes [OpenAI Whisper](https://github.com/openai/whisper) with [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt#:~:text=NVIDIA%20TensorRT%2DLLM%20is%20an,on%20the%20NVIDIA%20AI%20platform.), enabling lower memory consumption, and higher throughput compared to running Whisper with PyTorch.
 
-WhisperTRT roughly mimics the API of the original Whisper model, making it easy to use.  Read below for performance and usage details.
+WhisperTRT roughly mimics the API of the original Whisper model, making it easy to use.  
+
+Read below for performance and usage details!
 
 ## Benchmark
 
