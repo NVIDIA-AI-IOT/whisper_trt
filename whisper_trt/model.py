@@ -134,7 +134,7 @@ class WhisperTRT(nn.Module):
             dims: ModelDimensions,
             encoder: AudioEncoderTRT,
             decoder: TextDecoderTRT,
-            tokenizer: Tokenizer = None
+            tokenizer: Tokenizer | None = None
         ):
         super().__init__()
         self.dims = dims
@@ -152,7 +152,7 @@ class WhisperTRT(nn.Module):
         return self.decoder(tokens, self.encoder(mel))
     
     @torch.no_grad()
-    def transcribe(self, audio): #: str | np.ndarray):
+    def transcribe(self, audio : str | np.ndarray):
 
         if isinstance(audio, str):
             audio = whisper.audio.load_audio(audio)
@@ -404,7 +404,7 @@ MODEL_BUILDERS = {
     "small.en": SmallEnBuilder
 }
 
-def load_trt_model(name: str, path: str = None, build: bool = True, verbose: bool = False):
+def load_trt_model(name: str, path: str | None = None, build: bool = True, verbose: bool = False):
 
     if name not in MODEL_BUILDERS:
         raise RuntimeError(f"Model '{name}' is not supported by WhisperTRT.")
