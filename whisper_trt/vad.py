@@ -28,8 +28,10 @@ import os
 from .utils import check_file_md5, download_file
 from .cache import get_cache_dir, make_cache_dir
 
+# https://github.com/dusty-nv/jetson-containers/issues/568
+SILERO_VAD_ONNX_URL = "https://raw.githubusercontent.com/snakers4/silero-vad/1baf307b35ab3bbb070ab374b43a0a3c3604fa2a/files/silero_vad.onnx"
+#SILERO_VAD_ONNX_URL = "https://github.com/snakers4/silero-vad/raw/master/files/silero_vad.onnx"
 
-SILERO_VAD_ONNX_URL = "https://github.com/snakers4/silero-vad/raw/master/files/silero_vad.onnx"
 SILERO_VAD_ONNX_FILENAME = "silero_vad.onnx"
 SILERO_VAD_ONNX_MD5_CHECKSUM = "03da8de2fec4108a089b39f1b4abefef"
 
