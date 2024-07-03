@@ -33,7 +33,7 @@ def get_cache_dir() -> str:
 
 def make_cache_dir() -> str:
     if not os.path.exists(_CACHE_DIR):
-        os.makedirs(_CACHE_DIR)
+        os.makedirs(_CACHE_DIR, exist_ok=True)
 
 
 def set_cache_dir(path: str) -> str:
