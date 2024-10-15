@@ -301,7 +301,7 @@ class ASR(Thread):
                 self.asr_callback(text)
 
 
-class ASRPipeline:
+class WhisperTRTPipeline:
 
     def __init__(self,
             model: str = "small.en",
@@ -389,7 +389,7 @@ if __name__ == "__main__":
     def handle_asr(text):
         print("asr done: " + text)
 
-    pipeline = ASRPipeline(
+    pipeline = WhisperTRTPipeline(
         model=args.model,
         backend=args.backend,
         cache_dir=args.cache_dir,

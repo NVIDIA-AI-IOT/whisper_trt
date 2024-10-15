@@ -24,12 +24,12 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from rcl_interfaces.msg import ParameterDescriptor
-from asr_pipeline import ASRPipeline
+from whisper_trt_pipeline import WhisperTRTPipeline
 
 
-class AsrNode(Node):
+class WhisperTRTNode(Node):
     def __init__(self):
-        super().__init__('AsrNode')
+        super().__init__('WhisperTRTNode')
 
         self.declare_parameter("model", "small.en")
         self.declare_parameter("backend", "whisper_trt") 
@@ -66,7 +66,7 @@ class AsrNode(Node):
             self.speech_publisher.publish(msg)
             logger.info("published " + text)
 
-        self.pipeline = ASRPipeline(
+        self.pipeline = WhisperTRTPipeline(
             model=self.get_parameter("model").value,
             vad_window=self.get_parameter("vad_window").value,
             backend=self.get_parameter("backend").value,
@@ -87,7 +87,7 @@ class AsrNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = AsrNode()
+    node = WhisperTRTNode()
 
     node.start_asr_pipeline()
 
